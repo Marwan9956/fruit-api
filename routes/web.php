@@ -11,10 +11,24 @@
 |
 */
 
+Route::get('/', function(){
+    return view('welcome');
+});
 
+/*
+*/
 
 Route::group(['prefix' => '/api/v1/'],function(){
-    Route::get('/', function () {
-        return 'yes';
-    });
+	Route::group(['prefix' => 'news/'],function() {
+		Route::get('get', 'NewsController@getAll');
+		Route::get('get/{id}' , 'NewsController@getSingle');
+		/**
+		* Autenticate those routes
+		*/
+		Route::post('' , 'NewsController@store');
+		Route::put('' , 'NewsController@update');
+		Route::delete('' , 'NewsController@delete');
+
+	});
+    
 });
