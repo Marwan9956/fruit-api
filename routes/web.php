@@ -26,8 +26,8 @@ Route::group(['prefix' => '/api/v1/'],function(){
 		* Autenticate those routes
 		*/
 		Route::post('' , 'NewsController@store');
-		Route::put('' , 'NewsController@update');
-		Route::delete('' , 'NewsController@delete');
+		Route::put('update/{id}' , 'NewsController@update');
+		Route::delete('delete/{id}' , 'NewsController@delete');
 
 	});
     

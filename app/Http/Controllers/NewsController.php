@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use Carbon\Carbon;
 
 class NewsController extends Controller
 {
@@ -14,9 +15,17 @@ class NewsController extends Controller
 		
 		return response()->json($news , 200);
     }
-    
+	
+	/**
+	 * Return Single News 
+	 * @parm $id -> Number
+	 */
 	public function getSingle($id){
-		return 'working';
+		$news = News::find($id);
+		if(is_null($news)){
+			$news = ['No Results'];	
+		}
+		return response()->json($news , 200);
 	}
 	
 	/**
@@ -27,22 +36,24 @@ class NewsController extends Controller
 	* @return
 	*/
 	public function store(Request $req){
-		$response = [
-			['name' => 'hhhh'],
-			['name' => 'hhhh']
-		];
-		return response()->json($response,200);
+		$rules = [];
+		$req->validate();
+
+
+		return response()->json($req,200);
 	}
 	
 	/**
 	* Update
 	*/
-	public function update(Request $req){
+	public function update(Request $req , $id){
 		return 'OK';
 	}
 	
-	
-	public function delete(Request $id){
-		return 'Ok';'
+	/**
+	 * Delete Method Request
+	 */
+	public function delete($id){
+		return 'Ok';
 	}
 }
