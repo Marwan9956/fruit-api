@@ -20,7 +20,9 @@ class News extends Model
         'updated_at'
 	];
 	
-	
+	protected $fillable = [
+        'users_id', 'title', 'text', 'categroy_id'
+    ];
 	
 	 
     public function user(){
@@ -50,6 +52,16 @@ class News extends Model
 		return $val->format('M d Y');
 	}
 
+	public function setCreatedAtAttribute($val){
+		$val = Carbon::now();
+		$this->attributes['created_at'] = $val;
+	}
+
+	public function setUpdatedAtAttribute($val){
+		$val = Carbon::now();
+		$this->attributes['updated_at'] = $val;
+	}
+
 	
 	public function created_time(){
 		$time = Carbon::parse($this->attribute['created_at']);
@@ -61,6 +73,6 @@ class News extends Model
 	 * Mutators Attribute
 	 */
 	public function setTitleAttribute($val){
-		$this->attribute['title'] = strtolower($val);
+		$this->attributes['title'] = strtolower($val);
 	}
 }
