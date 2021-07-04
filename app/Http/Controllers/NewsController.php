@@ -66,7 +66,16 @@ class NewsController extends Controller
 		
 		}
 		
-    }
+	}
+	
+	/**
+	 * @method getNewsByCategory
+	 * 
+	 * Get All news orderd by id based on category type . 
+	 */
+	public function getNewsByCategory($cat){
+
+	}
 	
 	/**
 	 * @method getSingle
@@ -95,7 +104,7 @@ class NewsController extends Controller
 	*  
 	* @param Request req
 	* 
-	* @return news with success mesage or Errors
+	* @return json data with success mesage or Errors
 	*/
 	public function store(Request $req ){
 		

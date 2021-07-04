@@ -4,15 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\category;
+use App\User;
 
 class News extends Model
 {
-    //
-    /**
-	* One to many Belongs To User
-	* 
-	* @return
-	*/
+	//
+	
 	public $timestamps = true;
 
 	protected $dates = [
@@ -23,10 +21,16 @@ class News extends Model
 	protected $fillable = [
         'users_id', 'title', 'text', 'categroy_id'
     ];
+    /**
+	* One to many Belongs To User
+	* 
+	* @return
+	*/
+	
 	
 	 
     public function user(){
-		$this->belongsTo(User::class);
+		return $this->belongsTo(User::class);
     }
     
 	//
@@ -37,7 +41,7 @@ class News extends Model
 	*/
 	public function category()
 	{
-		$this->belongsTo(category::class);
+		return $this->belongsTo(category::class);
 	}
 
 	/**

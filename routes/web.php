@@ -30,5 +30,16 @@ Route::group(['prefix' => '/api/v1/'],function(){
 		Route::delete('delete/{id}' , 'NewsController@delete');
 
 	});
+
+	Route::group(['prefix' => 'category/'],function(){
+		Route::get('get' , 'CategoryController@getAll');
+		Route::get('get/{id}' , 'CategoryController@getSingle');
+		/**
+		 * Authenticate these Routes
+		 */
+		Route::post('store','CategoryController@store');
+		Route::put('update/{id}' , 'CategoryController@update');
+		Route::delete('delete/{id}' , 'CategoryController@delete');
+	});
     
 });
