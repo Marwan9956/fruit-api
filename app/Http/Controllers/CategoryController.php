@@ -15,14 +15,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CategoryController extends Controller
 {
-    /*
-    public $serverErr;
-	public $dbErr;
-	public $user_id_Err;
-	public $category_id_Err;
-    public $newsNotFound_Err;
-    dataNotFoundErr
-    */
+    
     private $msg;
 
     public function __construct(){

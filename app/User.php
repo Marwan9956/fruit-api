@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\News;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -34,4 +35,15 @@ class User extends Authenticatable
     public function news(){
 		return $this->hasMany(News::class);
     }
+
+
+    public function setCreatedAtAttribute($val){
+		$val = Carbon::now();
+		$this->attributes['created_at'] = $val;
+	}
+
+	public function setUpdatedAtAttribute($val){
+		$val = Carbon::now();
+		$this->attributes['updated_at'] = $val;
+	}
 }

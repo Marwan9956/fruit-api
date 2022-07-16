@@ -11,8 +11,6 @@ $arr = [
     @include('layouts.head')
     <body >
         <div id="app">
-            <!--Nav -->
-            <navigation brand = "{{ 'Brand' }}" arr= {!! json_encode($arr) !!} ></navigation>
             <!-- Message Include -->
             <div id="app" class="flex-center position-ref full-height">
                 

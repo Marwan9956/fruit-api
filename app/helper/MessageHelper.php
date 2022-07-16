@@ -9,7 +9,8 @@ class MessageHelper{
 	public $dbErr;
 	public $user_id_Err;
 	public $category_id_Err;
-    public $newsNotFound_Err;
+	public $newsNotFound_Err;
+	public $usersNotFoundErr;
     public $dataNotFoundErr;
     public $success;
     public $successDelete; 
@@ -24,7 +25,8 @@ class MessageHelper{
 		$this->dbErr 		     = "Error : Database Internal Error Call Admin.";
 		$this->user_id_Err       = "Error: User ID is not Correct";
 		$this->category_id_Err   = "Error: Category ID is not Correct";
-        $this->newsNotFound_Err  = "Error : No news With this ID .";
+		$this->newsNotFound_Err  = "Error : No news With this ID .";
+		$this->usersNotFoundErr  = "Error : No Users found.";
         $this->dataNotFoundErr   = "Error : No data available with this request.";
         $this->noReqFoundErr     = "Error : No Json Request been passed";
 
